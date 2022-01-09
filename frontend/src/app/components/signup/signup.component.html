@@ -1,0 +1,23 @@
+<form [formGroup]="form"  class="login-form" name="login-form" (submit)="onSubmit()">
+  <div class="form-control">
+    <h4>
+      <label for="username">Имя пользователя:</label>
+      <input id="username" formControlName="username" name="username" placeholder="Username..." pInputText>
+    </h4>
+  </div>
+
+  <div class="form-control">
+    <h4>
+      <label for="password">Пароль:</label>
+      <p-password id="password" formControlName="password" [feedback]="false" name="password" placeholder="Password..."></p-password>
+    </h4>
+  </div>
+
+  <p-button align="center" label="Зарегистрироваться" type="submit"></p-button>
+
+</form>
+
+<p-message *ngIf="error" severity="error" text="Имя пользователя или Пароль не введены!"></p-message>
+<p-message *ngIf="existed_user" severity="error" text="Данный пользователь существует!"></p-message>
+<p-message *ngIf="good" severity="success" text="Все прошло успешно. Войдите с такими же данными."></p-message>
+

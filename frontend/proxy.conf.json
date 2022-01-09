@@ -1,0 +1,8 @@
+{
+  "/rest/*": {
+    "target": "http://localhost:1444/backend/api",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
