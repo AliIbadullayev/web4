@@ -24,8 +24,19 @@
 	</dependencies> 
 </module>
 ```
+**Inside wildfly workspace**
+```
+modules
+├── org
+│   └── postgres
+│   	└── main
+│	    ├── module.xml
+│	    └── postgresql-42.3.1.jar
+└── system
+    ├── ...
+    └── ...
 
-![Alt text](img/modules.png?raw=true "Modules")
+```
 
 - Create datasource (name of db, jdbc driver and this url `jdbc:postgresql://pg:5432/studs` to connect to helios db)
 > If you want that it work without changing a `persistence.xml` file,  name datasource as `PostgresDS`.
