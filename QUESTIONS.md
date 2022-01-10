@@ -1,4 +1,30 @@
 
+## JavaEE / Spring
+
+**JavaEE**
+```
+01. JavaEE is a Sun/Oracle standard/specification.	
+02. JavaEE is used for web development.	
+04. JavaEE has oracle based license.	
+05. It is based on three-dimensional architectural frameworks. 	
+06. It has an object-oriented language that contains a certain style and syntax.	
+07. JavaEE has got good speed.	
+08. JavaEE can be web-based or non-web-based.	
+09. It is typically got a graphical user interface created from the abstract window toolkit.	
+10. JavaEE uses JTA API with the execution.	
+```
+**Spring**
+```
+01. Spring is not a standard, strictly speaking, it is a framework.
+02. Spring is used for a template design for an application.
+04. Spring has an open-source license.
+05. It is based on layered architecture containing many modules.
+06. It does not has a programming language.
+07. Spring is slower than JavaEE.
+08. Spring is based on almost 20 modules.
+09. This makes the same syntax independent of an IDE.
+10. Spring gives a certain layer to help different JTA execution merchants.
+```
 ## 19. Angular: архитектура и основные принципы разработки приложений.
 Сам фреймворк состоит из нескольких библиотек (или модулей), каждая из которых содержит в себе определенный функционал, а каждый модуль состоит из совокупности классов и их свойств и методов.
 
