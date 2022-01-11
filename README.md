@@ -5,9 +5,11 @@
 - Download your wildfly to helios 
 - Throw ports to your local pc  
 
-`ssh -p 2222 helios.se.ifmo.ru -L 12345:localhost:8080`\
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; △△△△&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; △△△ \
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;`local port`&emsp;&emsp;`port on helios`
+```
+ssh -p 2222 helios.se.ifmo.ru -L 12345:localhost:8080
+				 △△△ 	         △△△ 
+			      local port    port on helios
+```
 
 - Run `add_user.sh` in `./bin`
 - Create new user to work with admin panel
