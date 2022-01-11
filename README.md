@@ -55,4 +55,6 @@ ssh -p 2222 helios.se.ifmo.ru -L <local port of web app(frontend)>:localhost:<po
 bash ./<path of wildfly standalone.sh>
 npm start (in path where the frontend content is)
 ```
-> I recommend run an web application in different terminals
+> I recommend run an web application in different terminals.	
+> 
+> And not download on helios an frontend application (Because of his size. My is 886 MB). Just run It on your local PC.
