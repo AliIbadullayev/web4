@@ -50,10 +50,22 @@ modules
 ### Running an app
 
 ``` sh
-ssh -p 2222 helios.se.ifmo.ru -L <local port of server(backend)>:localhost:<port of server>
-ssh -p 2222 helios.se.ifmo.ru -L <local port of web app(frontend)>:localhost:<port of web app>
-bash ./<path of wildfly standalone.sh>
-npm start (in path where the frontend content is)
+#Here we throw the port 1444 on helios.se.ifmo.ru to localhost with access port 1445 
+#This port is responsible for our JavaEE application
+#Take care that port 1445 in frontend/proxy.conf.json same as port on which we are throwing (1445)
+
+ssh -p 2222 helios.se.ifmo.ru -L 1445:localhost:1444
+```
+
+``` sh
+#We must increase size of java allocated heap with 
+
+_JAVA_OPTIONS="-Xmx1024M -Xms128M"
+export _JAVA_OPTIONS
+```
+And using this command we run our application
+``` sh
+bash ./standalone.sh -b 0.0.0.0
 ```
 > I recommend run an web application in different terminals.	
 > 
