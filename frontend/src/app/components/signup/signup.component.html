@@ -2,15 +2,17 @@
   <div class="form-control">
     <h4>
       <label for="username">Имя пользователя:</label>
-      <input id="username" formControlName="username" name="username" placeholder="Username..." pInputText>
     </h4>
+      <input id="username" formControlName="username" name="username" placeholder="Username..." pInputText>
+
   </div>
 
   <div class="form-control">
     <h4>
       <label for="password">Пароль:</label>
-      <p-password id="password" formControlName="password" [feedback]="false" name="password" placeholder="Password..."></p-password>
     </h4>
+      <input type="password" id="password" formControlName="password" [feedback]="false" name="password" placeholder="Password..." pPassword>
+
   </div>
 
   <p-button align="center" label="Зарегистрироваться" type="submit"></p-button>

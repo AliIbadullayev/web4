@@ -1,23 +1,6 @@
-h2 {
-  display: block;
-  text-align: center;
-
-}
-
-h3 {
-  display: block;
-  text-align: center;
-  margin-bottom: 20px;
-}
 
 .x-input {
   display: block;
-}
-
-.x-fetch {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
 }
 
 .y-fetch {

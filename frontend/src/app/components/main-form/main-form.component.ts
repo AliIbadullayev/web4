@@ -206,7 +206,7 @@ export class MainFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.value.x == null || this.form.value.y == null || this.form.value.radius == null) {
-      console.log("Form is not fulled!!!");
+      this.validate_error = true;
       // @ts-ignore
 
     }

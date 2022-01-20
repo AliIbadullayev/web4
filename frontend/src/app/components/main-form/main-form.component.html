@@ -1,3 +1,4 @@
+<div class="form">
 <h2>Выборка координат</h2>
 <div class="content-container result-graph_container">
   <svg width="220" height="220" xmlns="http://www.w3.org/2000/svg" class="svg-graph" (mouseenter)="mouseEnter()" (click)="mouseClick($event)" >
@@ -66,7 +67,7 @@
   </div>
   <div class="radius-input">
     <h3>
-      Выберите радиус: {{this.form.value.r}}
+      Выберите радиус: {{this.form.value.radius}}
     </h3>
     <div class="radius-fetch">
       <div *ngFor="let r of radiuss" class="p-field-checkbox">
@@ -80,8 +81,9 @@
   </div>
   <p-button align="center" type="submit" label="Отправить" class="submit-button" name="submit-button"></p-button>
 </form>
+</div>
 
-<div class="container">
+<div class="table-div">
   <h2>Таблица с результатами</h2>
   <table class="table table-striped">
     <thead>
