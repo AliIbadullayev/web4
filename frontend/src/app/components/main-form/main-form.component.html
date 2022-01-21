@@ -37,9 +37,11 @@
     </g>
   </svg>
   <canvas #canvas id="canvas_points" width="220" height="220" >Предыдущие проверки</canvas>
-  <p-message *ngIf="error" severity="error" text="Пожалуйста выберите радиус!"></p-message>
-  <p-message *ngIf="validate_error" severity="error" text="Пожалуйста выберите корректные координаты по Х и Y!"></p-message>
+
+  <p-message *ngIf="validate_error_x" severity="error" text="Пожалуйста выберите корректную координату по Х [-3;5]!"></p-message>
+  <p-message *ngIf="validate_error_y" severity="error" text="Пожалуйста выберите корректную координату по Y [-3;5]!"></p-message>
   <p-message *ngIf="server_error" severity="error" text="На стороне сервера произошла ошибка! Убедитесь в верности введенных данных!"></p-message>
+  <p-message *ngIf="choose_radius_error" severity="error" text="Пожалуйста выберите радиус!"></p-message>
 </div>
 <form class="point-form" name="point-form" [formGroup]="form" (submit)="onSubmit()">
   <div class="x-input">
@@ -62,7 +64,7 @@
       Выберите координату по Y: {{this.form.value.y}}
     </h3>
     <div class="y-fetch">
-      <p-slider name="y" formControlName="y" [step]="1" [min]="-3" [max]="5"></p-slider>
+      <p-slider name="y" formControlName="y" [step]="0.01" [min]="-3" [max]="5"></p-slider>
     </div>
   </div>
   <div class="radius-input">

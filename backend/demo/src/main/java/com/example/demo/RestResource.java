@@ -88,7 +88,7 @@ public class RestResource {
                     appPoint.getRadius(),
                     httpServletRequest.getAttribute("name").toString()
             );
-            return Response.status(200).entity(new JSONArray(service.getTempPoints())).build();
+            return Response.status(200).entity(new JSONArray(service.getPointsOnInit(httpServletRequest.getAttribute("name").toString()))).build();
         }catch (Exception e){
             System.err.println(e.getMessage());
             return Response.status(500).build();

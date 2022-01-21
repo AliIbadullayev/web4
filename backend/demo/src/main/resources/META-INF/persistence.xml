@@ -10,9 +10,8 @@
         <class>com.example.demo.AppPoint</class>
 
         <properties>
-
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://5432/" /> <!-- BD Mane -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://pg:5432/studs" /> <!-- BD Mane -->
             <property name="javax.persistence.jdbc.user" value="" /> <!-- DB User -->
             <property name="javax.persistence.jdbc.password" value="" /> <!-- DB Password -->
 

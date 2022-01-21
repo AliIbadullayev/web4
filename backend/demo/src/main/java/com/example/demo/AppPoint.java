@@ -11,9 +11,9 @@ public class AppPoint {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "point_id")
     @Column(name = "point_id")
     private Long id;
-    private Integer x;
-    private Integer y;
-    private Integer radius;
+    private Float x;
+    private Float y;
+    private Float radius;
     private Boolean result;
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="owner_id")
@@ -22,13 +22,13 @@ public class AppPoint {
     public AppPoint() {
     }
 
-    public AppPoint(Integer x, Integer y, Integer radius) {
+    public AppPoint(Float x, Float y, Float radius) {
         this.x = x;
         this.y = y;
         this.radius = radius;
     }
 
-    public AppPoint(Integer x, Integer y, Integer radius, Boolean result) {
+    public AppPoint(Float x, Float y, Float radius, Boolean result) {
         this.x = x;
         this.y = y;
         this.radius = radius;
@@ -43,27 +43,27 @@ public class AppPoint {
         this.id = id;
     }
 
-    public Integer getX() {
+    public Float getX() {
         return x;
     }
 
-    public void setX(Integer x) {
+    public void setX(Float x) {
         this.x = x;
     }
 
-    public Integer getY() {
+    public Float getY() {
         return y;
     }
 
-    public void setY(Integer y) {
+    public void setY(Float y) {
         this.y = y;
     }
 
-    public Integer getRadius() {
+    public Float getRadius() {
         return radius;
     }
 
-    public void setRadius(Integer radius) {
+    public void setRadius(Float radius) {
         this.radius = radius;
     }
 

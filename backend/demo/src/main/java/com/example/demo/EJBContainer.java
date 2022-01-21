@@ -19,7 +19,6 @@ import com.example.demo.secure.KeyGenerator;
 import com.example.demo.secure.PasswordHash;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.json.JSONArray;
 
 
 @Stateless
@@ -124,7 +123,7 @@ public class EJBContainer {
         }
     }
 
-    public AppPoint checkPoint(int x, int y, int r, String name) throws Exception {
+    public AppPoint checkPoint(float x, float y, float r, String name) throws Exception {
         if (!validateXY(x) || !validateXY(y) || !validateRadius(r)) throw new Exception("Can not pass validation test");
         createdAppPoint = new AppPoint(x, y, r);
         createdAppPoint.setResult((y >= 0 && y <= r && x >= -r && x <= 0) || ((x * x) + (y * y) <= (r * r) && x <= 0 && y <= 0) || (x - r <= y && x >= 0 && y <= 0));
@@ -132,15 +131,14 @@ public class EJBContainer {
         transaction.begin();
         entityManager.persist(createdAppPoint);
         transaction.commit();
-        loadPoints(createdAppPoint.getOwner().getId());
         return createdAppPoint;
     }
 
-    private boolean validateRadius(int r) {
+    private boolean validateRadius(float r) {
         return r > 0 && r <= 5;
     }
 
-    private boolean validateXY(int xy){
+    private boolean validateXY(float xy){
         return xy >= -3 && xy <= 5;
     }
 
@@ -149,10 +147,6 @@ public class EJBContainer {
         return tempPoints;
     }
 
-
-    public List<AppPoint> getTempPoints() {
-        return tempPoints;
-    }
 
     public boolean authenticate(String username, String password) {
         try{

@@ -31,9 +31,10 @@ export class MainFormComponent implements OnInit {
   Points!: POINTS[];
   result!: POINTS;
   json!: object;
-  error!: boolean;
+  choose_radius_error!: boolean;
   server_error!: boolean;
-  validate_error!: boolean;
+  validate_error_x!: boolean;
+  validate_error_y!: boolean;
 
 
   xss: any[] = [
@@ -69,7 +70,7 @@ export class MainFormComponent implements OnInit {
       radius: null
     });
 
-    this.error = false;
+    this.choose_radius_error = false;
 
     this.rx.nativeElement.innerHTML= 'R';
     this.minus_rx.nativeElement.innerHTML = "-R";
@@ -91,8 +92,9 @@ export class MainFormComponent implements OnInit {
       radius: null
     });
 
-    this.error = false;
-    this.validate_error = false;
+    this.choose_radius_error = false;
+    this.validate_error_x = false;
+    this.validate_error_y = false;
     this.server_error = false;
 
     this.rx.nativeElement.innerHTML= 'R';
@@ -152,9 +154,11 @@ export class MainFormComponent implements OnInit {
 
   mouseEnter() {
     if (this.form.value.radius == null){
-      this.error = true;
+      this.choose_radius_error = true;
     } else {
-      this.error = false;
+      this.choose_radius_error = false;
+      this.validate_error_y = false;
+      this.validate_error_x = false;
       this.rx.nativeElement.innerHTML= this.form.value.radius;
       this.minus_rx.nativeElement.innerHTML = -this.form.value.radius;
       this.halfrx.nativeElement.innerHTML =  this.form.value.radius/2
@@ -169,17 +173,22 @@ export class MainFormComponent implements OnInit {
 
   mouseClick(evt: MouseEvent){
     if(this.form.value.radius !== null) {
-      let xcheck: number = Number(((evt.offsetX - 110) / 33 * this.form.value.radius / 2).toFixed(0));
-      let ycheck: number = Number((-(evt.offsetY - 110) / 33 * this.form.value.radius / 2).toFixed(0));
+      let xcheck: number = Number(((evt.offsetX - 110) / 33 * this.form.value.radius / 2).toFixed(2));
+      let ycheck: number = Number((-(evt.offsetY - 110) / 33 * this.form.value.radius / 2).toFixed(2));
 
       this.form.value.x = this.validateX(xcheck);
       this.form.value.y = this.validateY(ycheck);
       if (this.form.value.x != null && this.form.value.y != null) {
-        this.validate_error = false;
+        this.validate_error_x = false;
+        this.validate_error_y = false;
         this.onSubmit();
       }
       else {
-        this.validate_error = true;
+        if (!this.form.value.x){
+          this.validate_error_x = true;
+        } if (!this.form.value.y) {
+          this.validate_error_y = true;
+        }
         return;
       }
     }
@@ -206,9 +215,10 @@ export class MainFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.value.x == null || this.form.value.y == null || this.form.value.radius == null) {
-      this.validate_error = true;
-      // @ts-ignore
-
+      this.validate_error_x = this.form.value.x == null;
+      this.validate_error_y = this.form.value.y == null;
+      this.choose_radius_error = this.form.value.radius == null;
+      return;
     }
     else {
       // @ts-ignore
